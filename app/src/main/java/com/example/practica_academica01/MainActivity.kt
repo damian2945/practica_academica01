@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        // Configurar ActionBar para mostrar el menú
+        setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar?.title = "Lista de Alumnos"
+
         initializeViews()
         setupRecyclerView()
         setupFloatingActionButton()
@@ -41,13 +45,47 @@ class MainActivity : AppCompatActivity() {
         // ArrayList de clase Alumno
         data = ArrayList()
 
-        // Agregar elementos de ejemplo
-        for (i in 1..5) {
+        // Listas predefinidas de estudiantes
+        val nombres = listOf(
+            "Ana María Pérez",
+            "Juan Carlos Silva",
+            "Laura Martínez",
+            "Diego Herrera",
+
+        )
+
+        val cuentas = listOf(
+            "20207001",
+            "20207002",
+            "20207003",
+            "20207004",
+
+        )
+
+        val correos = listOf(
+            "ana.perez@unah.hn",
+            "juan.silva@unah.hn",
+            "laura.martinez@unah.hn",
+            "diego.herrera@unah.hn",
+
+        )
+
+        // Diferentes imágenes de perfil (opcionales)
+        val imagenes = listOf(
+            "https://i.pinimg.com/236x/e0/b8/3e/e0b83e84afe193922892917ddea28109.jpg",
+            "https://i.pinimg.com/236x/a3/7e/99/a37e9956b8b8d1d8c6b1a2d3e4f5a6b7.jpg",
+            "https://i.pinimg.com/236x/b4/8f/a1/b48fa1e7c9d9e2e9d7c2b3e4f5a6b8c9.jpg",
+            "https://i.pinimg.com/236x/c5/9a/b2/c59ab2f8dad0f3fae8d3c4e5f6a7b9ca.jpg",
+
+        )
+
+        // Agregar todos los estudiantes usando las listas
+        for (i in nombres.indices) {
             data.add(Alumno(
-                "Estudiante $i",
-                "2020703$i",
-                "estudiante$i@unah.hn",
-                "https://i.pinimg.com/236x/e0/b8/3e/e0b83e84afe193922892917ddea28109.jpg"
+                nombres[i],
+                cuentas[i],
+                correos[i],
+                imagenes[i]
             ))
         }
 
